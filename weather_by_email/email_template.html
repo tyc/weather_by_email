@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Weather by Email!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body style="color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
+	<table style="border: 1px solid #cccccc;" align="center" border="0" cellpadding="0" cellspacing="0"
+		width="600">
+		<tr>
+			<td align="center" bgcolor="#F2F23A" style="padding: 15px 30px 30px 15x;">
+			
+				<table border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td 
+							align="center" style="color: #153643; font-family: Arial, sans-serif; font-size: 18px; padding: 10px 5px 5px 10px;">
+							$WBE_DATE_TIME$</td>
+					</tr>
+					<tr>
+						<td
+							align="center" style="color: #153643; font-family: Arial, sans-serif; font-size: 18px; padding: 10px 5px 5px 10px;">
+							$WBE_LOCATION$</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ffffff" style="padding: 40px 30px 40px 30px;">
+				<table border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td
+							align="center" style="color: #153643; font-family: Arial, sans-serif; font-size: 24px;">
+							$WBE_FORECAST$
+						</td>
+					</tr>
+			
+					<tr>
+						<td style="padding: 30px 5px 5px 5px;">
+							<table border="0" cellpadding="0" cellspacing="0" width="100%">
+								<tr>
+									<td width="150px" style="font-size: 18px;">   &nbsp;</td>
+									<td align="center" width="150px" style="font-size: 32px;">Min</td>
+									<td align="center" width="50px" style="font-size: 32px;">$WBE_FORECAST_TEMP_MIN$&deg;</td>
+									<td align="center" width="150px" style="font-size: 32px;">Max</td>
+									<td align="center" width="50px" style="font-size: 32px;">$WBE_FORECAST_TEMP_MAX$&deg;</td>
+									<td width="150px" style="font-size: 18px;">   &nbsp;</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+			
+			
+					<tr>
+						<td style="padding: 30px 5px 5px 5px;">
+							<table border="0" cellpadding="0" cellspacing="0" width="100%">
+								<tr>
+									<td width="260" valign="top">Morning</td>
+									<td width="260" valign="top">$WBE_FORECAST_TEMP_MORNING$&deg;</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding: 5px 5px 5px 5px;">
+							<table border="0" cellpadding="0" cellspacing="0" width="100%">
+								<tr>
+									<td width="260" valign="top">Afternoon</td>
+									<td width="260" valign="top">$WBE_FORECAST_TEMP_AFTERNOON$&deg;</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding: 5px 5px 5px 5px;">
+							<table border="0" cellpadding="0" cellspacing="0" width="100%">
+								<tr>
+									<td width="260" valign="top">Evening</td>
+									<td width="260" valign="top">$WBE_FORECAST_TEMP_EVENING$&deg;</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+
+
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<!-- 	This is to display the footer for the html email template. It shows a footer the email
+				that allows the recipient to unsubscribe. Also a couple of links to twitter and
+				facebook. Not 100% sure how to use these social media icons yet!
+		  -->
+			<td bgcolor="#F2F23A" style="padding: 30px 30px 30px 30px;">
+				<table border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+					<!-- display the unsubscribe data, and (c) data. -->
+						<td
+							style="color: #000000; font-family: Arial, sans-serif; font-size: 14px;">
+							Weather by Email <br /> 
+							<a href="https://docs.google.com/forms/d/1tffbnRhicD8GHTZyxDyIX0qPC2pA1h8T1Uau42hc_es/viewform"
+							style="color: #000000;"><font color="#000000">Stop getting weather forecast.</font></a>
+							Sorry to see you go.
+						</td>
+
+					<!-- display the multimedia icons. -->
+						<td align="right">
+							<table border="0" cellpadding="0" cellspacing="0">
+								<tr>
+									<td><a href="http://www.twitter.com/"> <img
+											src="images/tw.png" alt="Twitter" width="38" height="38"
+											style="display: block;" border="0" />
+									</a></td>
+									<td style="font-size: 0; line-height: 0;" width="20">&nbsp;</td>
+									<td><a href="http://www.facebook.com/"> <img
+											src="images/fb.png" alt="Facebook" width="38" height="38"
+											style="display: block;" border="0" />
+									</a></td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
