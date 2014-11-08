@@ -48,6 +48,15 @@ def sent_email(forecast, location,email):
 	session.quit()
 	return None
 
+def convert_deg_to_wind_direction(deg):
+	
+	wind_dir = ['N','NE','E','SE','S','SE','W','NW']
+	
+	deg_int = int(round(deg/45.0))
+	deg_int = deg_int % 8 
+	
+	return wind_dir[deg_int]
+
 #parse the input options and use it code.
 parser = OptionParser()
 parser.add_option("-t", "--town", dest="town", help="town")
@@ -98,10 +107,10 @@ for list_member in subscribers_list():
 			forecast_temp_morn = int(forecast_temp_json_obj["list"][1]["temp"]["morn"])
 			forecast_temp_eve = int(forecast_temp_json_obj["list"][1]["temp"]["eve"])
 			forecast_temp_night = int(forecast_temp_json_obj["list"][1]["temp"]["night"])
-			forecast_temp_status = str(forecast_temp_json_obj["list"][1]["weather"][0]["description"])
+			forecast_temp_status = str(forecast_temp_json_obj["list"][1]["weather"][0]["main"]) + ', ' + str(forecast_temp_json_obj["list"][1]["weather"][0]["description"])
 			forecast_time_date = datetime.datetime.fromtimestamp(int(forecast_temp_json_obj["list"][1]["dt"])).strftime('%A, %d %B %Y')
-			forecast_temp_status = str(forecast_temp_status)
-				
+			forecast_wind = "Wind is " + str(int(forecast_temp_json_obj["list"][1]["speed"])) + ' km/h, ' + str(convert_deg_to_wind_direction(forecast_temp_json_obj["list"][1]["deg"]))
+			
 #build up the HTML email by inserting some custom text from the weather forecast
 			htmltext = htmltext_template
 			htmltext = re.sub('\$WBE_LOCATION\$',str(location),htmltext)
@@ -112,6 +121,7 @@ for list_member in subscribers_list():
 			htmltext = re.sub('\$WBE_FORECAST_TEMP_MORNING\$',str(forecast_temp_morn),htmltext)
 			htmltext = re.sub('\$WBE_FORECAST_TEMP_AFTERNOON\$',str(forecast_temp_eve),htmltext)
 			htmltext = re.sub('\$WBE_FORECAST_TEMP_EVENING\$',str(forecast_temp_night),htmltext)
+			htmltext = re.sub('\$WBE_WIND_STATUS\$',str(forecast_wind),htmltext)
 			sent_email(htmltext,location,options.email)
 		
 		
